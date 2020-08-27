@@ -1,0 +1,83 @@
+.hidden {
+  display: none;
+}
+
+.dropbutton {
+  display: inline;
+}
+
+.dropbutton .main-item-row {
+  display: flex;
+}
+
+.dropbutton .main-item-row .main-item {
+    color: white;
+    background: blue;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.5em 1em;
+    border-radius: 1em 0 0 1em;
+}
+
+.dropbutton .main-item-row .main-item:hover {
+    background-color: #4383b1;
+}
+
+.dropbutton .main-item-row .more-items-link {
+    color: white;
+    background: blue;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.5em 1em;
+    border: none;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 0 1em 1em 0;
+    margin-left: 0.1em;
+    display: inline-flex;
+}
+
+.dropbutton .main-item-row .more-items-link:hover {
+    background: #4383b1;
+}
+
+.closable::after {
+  content: url("data:image/svg+xml,%3Csvg width='14' height='9' fill='%23FF00FF' viewBox='0 0 14 9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.2384999,1.9384769 1.646703,0.5166019 7.0002189,5.8193359 12.353735,0.5166019 13.761938,1.9384769 7.0002189,8.635742Z' fill='white'/%3E%3C/svg%3E");
+  transform: rotate(180deg);
+}
+
+.openable::after {
+  content: url("data:image/svg+xml,%3Csvg width='14' height='9' fill='%23FF00FF' viewBox='0 0 14 9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.2384999,1.9384769 1.646703,0.5166019 7.0002189,5.8193359 12.353735,0.5166019 13.761938,1.9384769 7.0002189,8.635742Z' fill='white'/%3E%3C/svg%3E");
+}
+
+.dropbutton .dropdown-items {
+  border: 1px solid lightgray;
+  width: fit-content;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5em;
+  min-width: 5em;
+  position: absolute;
+  background: blue;
+  color: white;
+  z-index: 1;
+}
+
+.dropbutton .dropdown-items ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+}
+
+.dropbutton .dropdown-items a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    display: block;
+    padding: 0em 1em;
+    font-weight: 700;
+}
+
+.dropbutton .dropdown-items a:hover {
+  background-color: #4383b1;
+}
