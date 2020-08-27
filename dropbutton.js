@@ -4,12 +4,25 @@ function init() {
     buttons[i].addEventListener("click", function (event) {
       onClick(event);
     });
+    buttons[i].addEventListener("keyup", function (event) {
+      onMoreItemsKeyPress(event);
+    });
   }
 
   var buttons = document.querySelectorAll(".dropdown-items-item");
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function (event) {
       onDropdownItemsClick(event);
+    });
+    buttons[i].addEventListener("keyup", function (event) {
+      onDropdownItemsKeyPress(event);
+    });
+  }
+
+  var buttons = document.getElementsByClassName("main-item");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("keyup", function (event) {
+      onMainItemKeyPress(event);
     });
   }
 
@@ -97,5 +110,62 @@ function getSiblings(elem) {
 
   return siblings;
 };
+
+function onDropdownItemsKeyPress(event) {
+  switch (event.key) {
+    case "ArrowDown":
+      var parent = event.target.parentElement.nextElementSibling;
+
+      if (parent !== null && parent.childElementCount >= 1) {
+        parent.children[0].focus();
+      }
+      break;
+
+    case "ArrowUp":
+      var parent = event.target.parentElement.previousElementSibling;
+
+      if (parent === null) {
+        parent = event.target.parentElement.parentElement.parentElement.previousElementSibling;
+      }
+
+      if (parent !== null && parent.childElementCount >= 1) {
+        parent.children[0].focus();
+      }
+      break;
+  }
+
+}
+
+function onMoreItemsKeyPress(event) {
+  switch (event.key) {
+    case "ArrowDown":
+      var parent = event.target.parentElement.nextElementSibling;
+
+      if (parent !== null && parent.childElementCount >= 1) {
+        parent.children[0].children[0].children[0].focus();
+      }
+      break;
+
+    case "ArrowLeft":
+      var previousElement = event.target.previousElementSibling;
+
+      if (previousElement !== null) {
+        previousElement.focus();
+      }
+      break;
+  }
+}
+
+function onMainItemKeyPress(event) {
+  switch (event.key) {
+    case "ArrowRight":
+      var nextElement = event.target.nextElementSibling;
+
+      if (nextElement !== null) {
+        nextElement.focus();
+      }
+      break;
+  }
+}
 
 init();

@@ -34,7 +34,6 @@
     cursor: pointer;
     border-radius: 0 1em 1em 0;
     margin-left: 0.1em;
-    display: inline-flex;
 }
 
 .dropbutton .main-item-row .more-items-link:hover {
